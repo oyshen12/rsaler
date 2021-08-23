@@ -6,21 +6,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.PrismaService = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
-const prisma_service_1 = require("./prisma.service");
-const user_controller_1 = require("./user/user.controller");
-const user_service_1 = require("./user/user.service");
-let AppModule = class AppModule {
+const client_1 = require("@prisma/client");
+let PrismaService = class PrismaService extends client_1.PrismaClient {
+    async onModuleInit() {
+        await this.$connect();
+    }
+    async enableShutdownHooks(app) {
+        this.$on('beforeExit', async () => {
+            await app.close();
+        });
+    }
 };
-AppModule = __decorate([
-    common_1.Module({
-        imports: [],
-        controllers: [app_controller_1.AppController, user_controller_1.UserController],
-        providers: [app_service_1.AppService, prisma_service_1.PrismaService, user_service_1.UserService],
-    })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+PrismaService = __decorate([
+    common_1.Injectable()
+], PrismaService);
+exports.PrismaService = PrismaService;
+//# sourceMappingURL=prisma.service.js.map
