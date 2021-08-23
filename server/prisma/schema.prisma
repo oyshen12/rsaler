@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           Int    @id @default(autoincrement())
+  login        String
+  name         String
+  email        String
+  password     String
+  phone_number String @default("none")
+  profile_picture String @default("none")
+  rating       Float
+
+  products Product[]
+  reviews  Review[]
+  reviewed Review[]  @relation(name: "userTo_fkey")
+
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+  updatedAt DateTime @updatedAt @db.Timestamp(6)
+}
+
+model Product {
+  id          Int     @id @default(autoincrement())
+  title       String
+  title_full  String
+  price       Int
+  description String
+  size        Float //TODO: Add relation
+  location    String //TODO: Add relation
+  active      Boolean
+  pictures String[] //TODO: ??
+  //TODO: Category
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+  updatedAt DateTime @updatedAt @db.Timestamp(6)
+}
+
+model Review {
+  id     Int    @id @default(autoincrement())
+  text   String
+  rating Float
+
+  author   User @relation(fields: [authorId], references: [id])
+  authorId Int
+  user     User @relation(name: "userTo_fkey", fields: [userId], references: [id])
+  userId   Int
+
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+  updatedAt DateTime @updatedAt @db.Timestamp(6)
+}
