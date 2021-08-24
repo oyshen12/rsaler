@@ -12,11 +12,11 @@ generator client {
 
 model User {
   id           Int    @id @default(autoincrement())
-  login        String
+  login        String @unique
+  email        String @unique
   name         String
-  email        String
   password     String
-  phone_number String @default("none")
+  phone_number String @default("none") //@unique
   profile_picture String @default("none")
   rating       Float
 
