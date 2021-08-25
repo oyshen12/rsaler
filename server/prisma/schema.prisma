@@ -11,25 +11,26 @@ generator client {
 }
 
 model User {
-  id           Int    @id @default(autoincrement())
-  login        String @unique
-  email        String @unique
-  name         String
-  password     String
-  phone_number String @default("none") //@unique
-  profile_picture String @default("none")
-  rating       Float
+  id              Int     @id @default(autoincrement())
+  login           String  @unique
+  email           String  @unique
+  name            String
+  password        String
+  phone_number    String? //@unique
+  profile_picture String?
+  rating          Float
 
   products Product[]
   reviews  Review[]
-  reviewed Review[]  @relation(name: "userTo_fkey")
+
+  reviewed Review[] @relation(name: "userTo_fkey")
 
   createdAt DateTime @default(now()) @db.Timestamp(6)
   updatedAt DateTime @updatedAt @db.Timestamp(6)
 }
 
 model Product {
-  id          Int     @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   title       String
   title_full  String
   price       Int
@@ -37,7 +38,7 @@ model Product {
   size        Float //TODO: Add relation
   location    String //TODO: Add relation
   active      Boolean
-  pictures String[] //TODO: ??
+  pictures    String[] //TODO: ??
   //TODO: Category
 
   user   User @relation(fields: [userId], references: [id])
@@ -60,4 +61,11 @@ model Review {
 
   createdAt DateTime @default(now()) @db.Timestamp(6)
   updatedAt DateTime @updatedAt @db.Timestamp(6)
+}
+
+model Location {
+  id          Int     @id @default(autoincrement())
+  country     String
+  city        String
+  geolocation String?
 }
