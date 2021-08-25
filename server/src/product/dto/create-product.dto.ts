@@ -15,6 +15,7 @@ export class CreateProductDto {
   @IsBoolean()
   active: boolean;
   pictures: string[];
-
-  // user: CreateUserDto;
+  @Type(() => Number)
+  @IsNumber()
+  userId: number;
 }

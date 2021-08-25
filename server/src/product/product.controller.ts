@@ -20,16 +20,7 @@ export class ProductController {
   @Post()
   async createProduct(
     @Body()
-    productData: {
-      title: string;
-      title_full: string;
-      price: number;
-      description: string;
-      size: string;
-      location: string;
-      active: boolean;
-      pictures: string[];
-    },
+    productData: CreateProductDto,
   ): Promise<ProductModel> {
     return this.productService.createProduct(productData);
   }
