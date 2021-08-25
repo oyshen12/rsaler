@@ -35,13 +35,13 @@ model Product {
   title_full  String
   price       Int
   description String
-  size        Float //TODO: Add relation
+  size        String //TODO: Add relation
   location    String //TODO: Add relation
   active      Boolean
   pictures    String[] //TODO: ??
   //TODO: Category
 
-  user   User @relation(fields: [userId], references: [id])
+  user   User? @relation(fields: [userId], references: [id]) //TODO: remove optional and fix type convertions
   userId Int
 
 
