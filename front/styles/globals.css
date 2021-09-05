@@ -1,0 +1,215 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Oswald-Regular';
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* HEADER------------------------------------------------------------------*/
+header {
+  padding: 39px 0 23px 0;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+}
+.header__wrapper {
+  margin: 0 15.76%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__categories {
+  display: flex;
+  font-size: 18px;
+  line-height: 27px;
+}
+.header__goods {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.header__goods img {
+  align-self: flex-end;
+  margin-bottom: 7px;
+  margin-left: 2px;
+}
+.header__goods span {
+  min-width: 50px;
+}
+.header__news {
+  margin-left: 52px;
+  cursor: pointer;
+}
+.header__logo {
+  cursor: pointer;
+}
+.header__auth {
+  display: flex;
+  align-items: center;
+}
+.header__auth img {
+  cursor: pointer;
+}
+.header__search {
+  margin-left: 10px;
+}
+.header__login button {
+  background-color: #0468ff;
+  color: white;
+  padding: 4px 15px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 27px;
+  border: none;
+}
+/* HEADER END------------------------------------------------------------------*/
+
+/* PRODUCT------------------------------------------------------------------*/
+.main__product {
+  cursor: pointer;
+  width: 220px;
+}
+.product__name {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+.product__name_sp {
+  font-size: 18px;
+  line-height: 27px;
+}
+.product__category {
+  font-size: 14px;
+  line-height: 21px;
+  color: #b6b6b6;
+}
+.product__price {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+.product__price__sp {
+  font-size: 14px;
+  line-height: 21px;
+}
+.product__time {
+  font-size: 14px;
+  line-height: 21px;
+  color: #b6b6b6;
+}
+.product_flex {
+  display: flex;
+  justify-content: center;
+  margin-top: 23px;
+}
+.main__new {
+  display: flex;
+  margin-top: 23px;
+  justify-content: center;
+  cursor: default;
+}
+.main__new span {
+  font-size: 24px;
+  line-height: 36px;
+}
+.product_grid {
+  display: grid;
+  grid-template-columns: 220px 220px 220px 220px;
+  grid-column-gap: 70px;
+  grid-row-gap: 50px;
+}
+/* PRODUCT END------------------------------------------------------------------*/
+
+/* MODAL START------------------------------------------------------------------*/
+.modal {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal__dialog {
+  max-width: 500px;
+  margin: 100px auto;
+}
+.modal__content {
+  position: relative;
+  width: 100%;
+  padding: 40px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.modal__close {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  font-size: 30px;
+  color: #000;
+  opacity: 0.5;
+  font-weight: 700;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.modal__title {
+  text-align: center;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+.modal__input {
+  display: block;
+  margin: 20px auto 20px auto;
+  width: 280px;
+  height: 50px;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: none;
+  font-size: 18px;
+  padding: 0 20px;
+  outline: 0;
+}
+
+.modal .btn {
+  display: block;
+  width: 280px;
+  margin: 0 auto;
+  height: 50px;
+  background-color: #303030;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+/* MODAL END------------------------------------------------------------------*/
+
+@font-face {
+  font-family: 'Oswald-Regular';
+  src: url('../public/fonts/Oswald-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Oswald-Bold';
+  src: url('../public/fonts/Oswald-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
