@@ -8,19 +8,14 @@ export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
   @Get()
-  async getAll(): Promise<ProductModel[]> {
-    return this.productService.products({});
-  }
-
-  //TODO: add querys in getall
-  @Get('filter')
   async getFiltered(
     @Query('limit') limit: number,
     @Query('page') page: number,
   ): Promise<ProductModel[]> {
-    console.log(limit);
-
-    return this.productService.products({ skip: limit * page, take: limit });
+    return this.productService.products({
+      skip: limit * page || 0,
+      take: limit ?? 100,
+    });
   }
 
   @Get(':id')
