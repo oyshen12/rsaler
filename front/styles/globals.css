@@ -72,6 +72,7 @@ header {
   font-size: 18px;
   line-height: 27px;
   border: none;
+  border-radius: 2px;
 }
 /* HEADER END------------------------------------------------------------------*/
 
@@ -79,6 +80,9 @@ header {
 .main__product {
   cursor: pointer;
   width: 220px;
+}
+.main__img {
+  width: 100%;
 }
 .product__name {
   display: flex;

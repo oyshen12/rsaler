@@ -1,8 +1,15 @@
+import Image from 'next/image';
 export default function Product({ product }) {
   return (
     <div>
       <div className="main__product">
-        <img src="/img/Rectangle 5.png" alt="" height="200px" width="220px" />
+        {/* <img src="/img/Rectangle 5.png" alt="" height="200px" width="220px" /> */}
+        <Image
+          src="/img/nike.png"
+          alt="Picture of the author"
+          width={220}
+          height={220}
+        />
         <div className="product__name">
           <div>
             <span className="product__name__sp">
