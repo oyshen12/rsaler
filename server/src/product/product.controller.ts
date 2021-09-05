@@ -14,10 +14,13 @@ export class ProductController {
 
   //TODO: add querys in getall
   @Get('filter')
-  async getFiltered(@Query('limit') limit: number): Promise<ProductModel[]> {
+  async getFiltered(
+    @Query('limit') limit: number,
+    @Query('page') page: number,
+  ): Promise<ProductModel[]> {
     console.log(limit);
 
-    return this.productService.products({ take: limit });
+    return this.productService.products({ skip: limit * page, take: limit });
   }
 
   @Get(':id')
