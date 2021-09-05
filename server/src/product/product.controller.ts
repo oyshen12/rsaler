@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { Product as ProductModel } from '@prisma/client';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -10,6 +10,14 @@ export class ProductController {
   @Get()
   async getAll(): Promise<ProductModel[]> {
     return this.productService.products({});
+  }
+
+  //TODO: add querys in getall
+  @Get('filter')
+  async getFiltered(@Query('limit') limit: number): Promise<ProductModel[]> {
+    console.log(limit);
+
+    return this.productService.products({ take: limit });
   }
 
   @Get(':id')
