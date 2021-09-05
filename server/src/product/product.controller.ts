@@ -13,8 +13,8 @@ export class ProductController {
     @Query('page') page: number,
   ): Promise<ProductModel[]> {
     return this.productService.products({
-      skip: limit * page || 0,
-      take: limit ?? 100,
+      skip: limit * page || page || 0,
+      take: limit || 100,
     });
   }
 
