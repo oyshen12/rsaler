@@ -1,15 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import Context from './contex';
+import React, { useState, useEffect, useContext } from 'react';
+import Context from '../Context/contex';
+import { AuthContext } from '../Context/AuthContext';
+const axios = require('axios').default;
 
 export default function ModalRegister() {
   let { isOpen, setisOpen } = React.useContext(Context);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-  //   useEffect(() => {
-  //     if (isOpen) document.body.style.overflow = 'hidden';
-  //     else {
-  //       document.body.style.overflow = 'visible';
-  //     }
-  //   }, [isOpen]);
+  const Auth = useContext(AuthContext);
+
+  async function Authenticated(e) {
+    e.preventDefault();
+
+    try {
+      const token = await axios
+        .post('http://localhost:3000/auth/login', { username, password })
+        .then((response) => {
+          return response.data;
+        });
+
+      Auth.login(token, '1');
+      console.log('nomana');
+      setisOpen(false);
+    } catch (e) {
+      console.log('hui');
+    }
+  }
 
   if (isOpen) {
     return (
@@ -39,6 +56,8 @@ export default function ModalRegister() {
                   name="name"
                   type="text"
                   className="modal__input"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                 />
                 <input
                   required
@@ -46,8 +65,17 @@ export default function ModalRegister() {
                   name="phone"
                   type="phone"
                   className="modal__input"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
-                <button className="btn btn_dark btn_min">Войти</button>
+                <button
+                  className="btn btn_dark btn_min"
+                  onClick={(e) => {
+                    Authenticated(e);
+                  }}
+                >
+                  Войти
+                </button>
               </form>
             </div>
           </div>

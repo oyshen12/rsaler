@@ -1,10 +1,20 @@
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useCallback, useState, useEffect, useContext } from 'react';
 import ModalRegister from '../components/ModalRegister';
-import Context from './contex';
+import Context from '../Context/contex';
+import Router from 'next/router';
+import { AuthContext } from '../Context/AuthContext';
 
 export default function Header() {
   const [isOpen, setisOpen] = useState(false);
+  const Auth = useContext(AuthContext);
 
+  useEffect(() => {
+    if (Auth.isAuthenticated) {
+      document.querySelector('.header__login_button').classList.add('hide');
+    } else {
+      document.querySelector('.header__login_button').classList.remove('hide');
+    }
+  }, [Auth.isAuthenticated]);
   return (
     <>
       <Context.Provider value={{ isOpen, setisOpen }}>
@@ -13,13 +23,16 @@ export default function Header() {
       <header>
         <div className="header__wrapper">
           <div className="header__categories">
+            <a className="icon" href="">
+              ☰
+            </a>
             <div className="header__goods">
               <span>Товары</span>
               <img src="img/Polygon 1.png" alt="" width="7px" height="7px" />
             </div>
             <span className="header__news">Новости</span>
           </div>
-          <div className="header__logo">
+          <div className="header__logo" onClick={() => Router.push('/')}>
             <img src="img/RSALER.png" alt="" width="110px" height="34px" />
           </div>
           <div className="header__auth">
@@ -32,7 +45,21 @@ export default function Header() {
               className="header__search"
             />
             <div className="header__login">
-              <button onClick={() => setisOpen(true)}>Войти</button>
+              <button
+                className="header__login_button"
+                onClick={() => {
+                  setisOpen(true);
+                }}
+              >
+                Войти
+              </button>
+              {/* <button
+                onClick={() => {
+                  Auth.logout();
+                }}
+              >
+                Выйти
+              </button> */}
             </div>
           </div>
         </div>

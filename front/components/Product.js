@@ -1,5 +1,11 @@
 import Image from 'next/image';
 export default function Product({ product }) {
+  let time = Date.now() - Date.parse(product.createdAt);
+  let setTime;
+  if (Math.floor(time / 86400000) > 1) {
+    setTime = Math.floor(time / 86400000) + ' дней';
+  }
+
   return (
     <div>
       <div className="main__product">
@@ -28,12 +34,7 @@ export default function Product({ product }) {
         </div>
         <div className="product__price">
           <span className="product__price__sp">{product.price}</span>
-          <span className="product__time">
-            {Math.floor(
-              ((Date.now() - Date.parse(product.createdAt)) / 3600000) % 24
-            ) + ' '}
-            часа назад
-          </span>
+          <span className="product__time">{setTime}</span>
         </div>
       </div>
     </div>
