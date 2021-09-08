@@ -8,13 +8,6 @@ export default function Header() {
   const [isOpen, setisOpen] = useState(false);
   const Auth = useContext(AuthContext);
 
-  useEffect(() => {
-    if (Auth.isAuthenticated) {
-      document.querySelector('.header__login_button').classList.add('hide');
-    } else {
-      document.querySelector('.header__login_button').classList.remove('hide');
-    }
-  }, [Auth.isAuthenticated]);
   return (
     <>
       <Context.Provider value={{ isOpen, setisOpen }}>
@@ -46,20 +39,22 @@ export default function Header() {
             />
             <div className="header__login">
               <button
-                className="header__login_button"
+                className={
+                  Auth.isAuthenticated ? 'hide' : 'header__login_button'
+                }
                 onClick={() => {
                   setisOpen(true);
                 }}
               >
                 Войти
               </button>
-              {/* <button
+              <button
                 onClick={() => {
                   Auth.logout();
                 }}
               >
                 Выйти
-              </button> */}
+              </button>
             </div>
           </div>
         </div>
