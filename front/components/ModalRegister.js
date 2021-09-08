@@ -19,12 +19,10 @@ export default function ModalRegister() {
         .then((response) => {
           return response.data;
         });
-
       Auth.login(token, '1');
-      console.log('nomana');
       setisOpen(false);
     } catch (e) {
-      console.log('hui');
+      console.log('Ошибка входа в аккаунт ' + e);
     }
   }
 
