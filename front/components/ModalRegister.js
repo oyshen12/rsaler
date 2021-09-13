@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Context from '../Context/contex';
+import ModalContext from '../Context/ModalContext';
 import { AuthContext } from '../Context/AuthContext';
 const axios = require('axios').default;
 
 export default function ModalRegister() {
-  let { isOpen, setisOpen } = React.useContext(Context);
+  let { isOpen, setisOpen } = React.useContext(ModalContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -61,7 +61,7 @@ export default function ModalRegister() {
                   required
                   placeholder="Пароль"
                   name="phone"
-                  type="phone"
+                  type="password"
                   className="modal__input"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}

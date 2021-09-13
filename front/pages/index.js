@@ -61,7 +61,7 @@ export default function Home({ products }) {
         <div className="product_flex">
           <div className="product_grid">
             {product.map((prod) => (
-              <Product product={prod}></Product>
+              <Product product={prod} />
             ))}
           </div>
         </div>

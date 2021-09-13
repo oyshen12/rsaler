@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useEffect, useContext } from 'react';
 import ModalRegister from '../components/ModalRegister';
-import Context from '../Context/contex';
+import ModalContext from '../Context/ModalContext';
 import Router from 'next/router';
 import { AuthContext } from '../Context/AuthContext';
 
@@ -10,9 +10,9 @@ export default function Header() {
 
   return (
     <>
-      <Context.Provider value={{ isOpen, setisOpen }}>
+      <ModalContext.Provider value={{ isOpen, setisOpen }}>
         <ModalRegister></ModalRegister>
-      </Context.Provider>
+      </ModalContext.Provider>
       <header>
         <div className="header__wrapper">
           <div className="header__categories">
