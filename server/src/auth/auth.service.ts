@@ -12,7 +12,7 @@ export class AuthService {
   async validateUser(username: string, pass: string): Promise<any> {
     const user = (
       await this.userService.users({
-        where: { login: username },
+        where: { email: username },
       })
     )[0];
 
@@ -22,6 +22,17 @@ export class AuthService {
     }
 
     return null;
+  }
+
+  //TODO: rating = optional, remove login
+  async register(user: any, pass: string): Promise<any> {
+    const { login, email, name, password } = user;
+    const createdUser = await this.userService.createUser({
+      email,
+      name,
+      password,
+      rating: 0,
+    });
   }
 
   //TODO: change to DTO | interface
