@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Header from '../../components/Header';
 const axios = require('axios').default;
 
 export default function Product({ data }) {
@@ -7,8 +8,11 @@ export default function Product({ data }) {
   const { id } = router.query;
 
   return (
-    <div className="">
-      ID: {id} {JSON.stringify(data)}
+    <div>
+      <Header></Header>
+      <p>
+        ID: {id} {JSON.stringify(data)}
+      </p>
     </div>
   );
 }
