@@ -71,6 +71,8 @@ header {
 }
 .header__search {
   margin-left: 10px;
+  width: 23px;
+  height: 23px;
 }
 .header__login button {
   background-color: #0468ff;

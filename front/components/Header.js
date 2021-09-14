@@ -3,6 +3,7 @@ import ModalRegister from '../components/ModalRegister';
 import ModalContext from '../Context/ModalContext';
 import Router from 'next/router';
 import { AuthContext } from '../Context/AuthContext';
+import Image from 'next/image';
 
 export default function Header() {
   const [isOpen, setisOpen] = useState(false);
@@ -21,22 +22,18 @@ export default function Header() {
             </a>
             <div className="header__goods">
               <span>Товары</span>
-              <img src="img/Polygon 1.png" alt="" width="7px" height="7px" />
+              <Image src="/img/Polygon 1.png" width="7px" height="7px" />
             </div>
             <span className="header__news">Новости</span>
           </div>
           <div className="header__logo" onClick={() => Router.push('/')}>
-            <img src="img/RSALER.png" alt="" width="110px" height="34px" />
+            <Image src="/img/RSALER.png" width="110px" height="34px" />
           </div>
           <div className="header__auth">
-            <img src="img/heart.svg" alt="" width="23px" height="23px" />
-            <img
-              src="img/search.png"
-              alt=""
-              width="23px"
-              height="23px"
-              className="header__search"
-            />
+            <Image src="/img/heart.svg" width="23px" height="23px" />
+            <div className="header__search">
+              <Image src="/img/search.png" width="23px" height="23px" />
+            </div>
             <div className="header__login">
               <button
                 className={
