@@ -11,7 +11,6 @@ export default function Product({ product }) {
   return (
     <Link href={`/product/${product.id}`}>
       <div className="main__product">
-        {/* <img src="/img/Rectangle 5.png" alt="" height="200px" width="220px" /> */}
         <Image
           src="/img/nike.png"
           alt="Picture of the author"
