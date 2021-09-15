@@ -10,13 +10,23 @@ export default function Product({ product }) {
     <div>
       <Header></Header>
       <div className="productPage_wrapper">
-        <div>
-          <Image
-            src="/img/ProductLogoBig.png"
-            alt="Picture of the author"
-            width={600}
-            height={600}
-          />
+        <div
+          style={{
+            outline: 'none',
+            width: '600px',
+            display: 'block',
+          }}
+        >
+          <div className="product_img_1">
+            <div className="product_img_2">
+              <div
+                className="product_img_3"
+                style={{
+                  backgroundImage: `url('../img/nike.png')`,
+                }}
+              ></div>
+            </div>
+          </div>
         </div>
         <div className="productPage_info">
           <ButtonBack />

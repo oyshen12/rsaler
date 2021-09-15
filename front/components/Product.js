@@ -11,12 +11,18 @@ export default function Product({ product }) {
   return (
     <Link href={`/product/${product.id}`}>
       <div className="main__product">
-        <Image
-          src="/img/nike.png"
-          alt="Picture of the author"
-          width={220}
-          height={220}
-        />
+        <div style={{ outline: 'none', width: '260px', display: 'block' }}>
+          <div className="product_img_1">
+            <div className="product_img_2">
+              <div
+                className="product_img_3"
+                style={{
+                  backgroundImage: `url('img/nike.png')`,
+                }}
+              ></div>
+            </div>
+          </div>
+        </div>
         <div className="product__name">
           <div>
             <span className="product__name__sp">
