@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UserService } from '../user/user.service';
+import { RegisterUserDto } from './dto/register-user.dto';
 
 @Injectable()
 export class AuthService {
@@ -25,14 +26,17 @@ export class AuthService {
   }
 
   //TODO: rating = optional, remove login
-  async register(user: any, pass: string): Promise<any> {
-    const { login, email, name, password } = user;
+  async register(userData: RegisterUserDto): Promise<any> {
+    const { email, name, password, phoneNumber } = userData;
     const createdUser = await this.userService.createUser({
       email,
       name,
       password,
+      phone_number: phoneNumber,
       rating: 0,
     });
+
+    return createdUser;
   }
 
   //TODO: change to DTO | interface
