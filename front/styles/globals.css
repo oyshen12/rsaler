@@ -24,13 +24,15 @@ header {
   top: 0;
   z-index: 10;
   background-color: #fff;
+  display: flex;
+  justify-content: center;
 }
 .header__wrapper {
-  margin: 0 15.76%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  width: 88.88%;
 }
 .header__categories {
   display: flex;
@@ -42,7 +44,6 @@ header {
   display: flex;
   align-items: center;
   cursor: pointer;
-  margin-left: 52px;
 }
 .header__goods img {
   align-self: flex-end;
@@ -94,6 +95,10 @@ header {
 .main__product {
   cursor: pointer;
   width: 260px;
+}
+.main__product:hover {
+  position: relative;
+  bottom: 5px;
 }
 .main__img {
   width: 100%;
@@ -185,10 +190,16 @@ header {
 /* PRODUCT END------------------------------------------------------------------*/
 
 /* PRODUCT PAGE------------------------------------------------------------------*/
+.productPage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .productPage_wrapper {
   margin-top: 30px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  width: 88.88%;
 }
 .productPage_img {
   width: 600px;
@@ -197,8 +208,7 @@ header {
 .productPage_info {
   display: flex;
   flex-direction: column;
-  margin-left: 80px;
-  margin-right: 50px;
+  margin-left: 100px;
   width: 41.66%;
   cursor: default;
 }
