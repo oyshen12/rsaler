@@ -33,6 +33,7 @@ header {
   align-items: center;
   justify-content: space-between;
   width: 88.88%;
+  max-width: 1440px;
 }
 .header__categories {
   display: flex;
@@ -200,6 +201,7 @@ header {
   display: flex;
   justify-content: space-between;
   width: 88.88%;
+  max-width: 1440px;
 }
 .productPage_img {
   width: 600px;
