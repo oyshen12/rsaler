@@ -67,6 +67,7 @@ header {
 .header__auth {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .header__auth img {
   cursor: pointer;
@@ -76,17 +77,18 @@ header {
   width: 23px;
   height: 23px;
 }
-.header__login button {
-  background-color: #0468ff;
-  color: white;
-  padding: 4px 15px;
-  margin-left: 10px;
-  cursor: pointer;
-  font-size: 18px;
-  line-height: 27px;
-  border: none;
-  border-radius: 2px;
+
+.header__login {
+  position: relative;
+  margin-left: 20px;
 }
+.header__heart {
+  margin-left: 14px;
+}
+.header__mail {
+  margin-left: 14px;
+}
+
 .icon {
   display: none;
 }
@@ -396,8 +398,80 @@ header {
 
 /* MODAL END------------------------------------------------------------------*/
 
-.show {
+/* MODAL AUTCH START------------------------------------------------------------------*/
+.modalAuth_login {
+  display: none;
+  position: absolute;
+  width: 278px;
+  height: 340px;
+  background: #ffffff;
+  box-shadow: 0px 0px 9px 8px rgba(0, 0, 0, 0.04);
+  right: 0px;
+  padding: 0 24px;
+}
+.modalAuth__input {
+  margin-top: 29px;
+  display: block;
+  height: 50px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  outline: 0;
+  width: 100%;
+  padding-left: 8px;
+}
+.modalAuth__button {
+  width: 230px;
+  height: 40px;
+  border: none;
+  background: #247bff;
+  border-radius: 2px;
+  margin-top: 29px;
+  color: #fff;
+  font-size: 18px;
+  line-height: 27px;
+  cursor: pointer;
+}
+.modalAuth__button_in {
+  width: 80px;
+  height: 35px;
+  background: #fff;
+  color: #000;
+  font-size: 18px;
+  line-height: 27px;
+  cursor: pointer;
+  border: solid 2px #000;
+  border-radius: 2px;
+}
+.modalAuth_register {
   display: flex;
+  justify-content: space-between;
+  color: rgba(0, 0, 0, 0.4);
+  margin-top: 6px;
+}
+.modalAuth_register span {
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+/* MODAL AUTH END------------------------------------------------------------------*/
+
+/* MODAL PROFILE ------------------------------------------------------------------*/
+.modalProfile {
+  display: none;
+  position: absolute;
+  width: 278px;
+  height: 340px;
+  background: #ffffff;
+  box-shadow: 0px 0px 9px 8px rgba(0, 0, 0, 0.04);
+  right: 0px;
+  padding: 0 24px;
+}
+/* MODAL PROFILE END------------------------------------------------------------------*/
+
+.show {
+  display: block;
 }
 .hide {
   display: none;
@@ -436,9 +510,7 @@ header {
   .header__news {
     display: none;
   }
-  .header__login {
-    display: none;
-  }
+
   .icon {
     display: block;
   }

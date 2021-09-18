@@ -1,13 +1,20 @@
-import React, { useCallback, useState, useEffect, useContext } from 'react';
+import React, {
+  useCallback,
+  useState,
+  useEffect,
+  useContext,
+  useRef,
+} from 'react';
 import ModalRegister from '../components/ModalRegister';
 import ModalContext from '../Context/ModalContext';
 import Router from 'next/router';
-import { AuthContext } from '../Context/AuthContext';
+
 import Image from 'next/image';
+import ModalAuth from './ModalAuth';
+import ModalProfile from './ModalProfile';
 
 export default function Header() {
   const [isOpen, setisOpen] = useState(false);
-  const Auth = useContext(AuthContext);
 
   return (
     <>
@@ -30,28 +37,23 @@ export default function Header() {
             <Image src="/img/RSALER.png" width="110px" height="34px" />
           </div>
           <div className="header__auth">
-            <Image src="/img/heart.svg" width="23px" height="23px" />
             <div className="header__search">
               <Image src="/img/search.png" width="23px" height="23px" />
             </div>
+            <div className="header__mail">
+              <Image src="/img/mail.svg" width="23px" height="23px" />
+            </div>
+
+            <span>0</span>
+            <div className="header__heart">
+              <Image src="/img/heart.svg" width="23px" height="23px" />
+            </div>
+
+            <span>0</span>
+
             <div className="header__login">
-              <button
-                className={
-                  Auth.isAuthenticated ? 'hide' : 'header__login_button'
-                }
-                onClick={() => {
-                  setisOpen(true);
-                }}
-              >
-                Войти
-              </button>
-              <button
-                onClick={() => {
-                  Auth.logout();
-                }}
-              >
-                Выйти
-              </button>
+              <ModalAuth></ModalAuth>
+              <ModalProfile></ModalProfile>
             </div>
           </div>
         </div>
