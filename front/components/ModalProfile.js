@@ -28,6 +28,7 @@ export default function ModalProfile() {
           >
             Выйти
           </button>
+          <div className="block">Глокая куздра штеко</div>
         </div>
       </div>
     );

@@ -48,7 +48,6 @@ export default function Home({ products }) {
 
   const { token, login, logout, userId } = useAuth();
   const isAuthenticated = !!token;
-
   return (
     <>
       <AuthContext.Provider

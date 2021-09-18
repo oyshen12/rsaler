@@ -16,7 +16,8 @@ export default function ModalAuth() {
     if (
       e.target.className != 'modalAuth__button_in' &&
       e.target.closest('div').className != 'modalAuth_login' &&
-      e.target.className != 'modalAuth_login'
+      e.target.className != 'modalAuth_login' &&
+      modalAuth.current
     ) {
       modalAuth.current.style.display = 'none';
     }

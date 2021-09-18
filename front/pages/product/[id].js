@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useEffect, useState, useRouter } from 'react';
 import Header from '../../components/Header';
 const axios = require('axios').default;
 import Image from 'next/image';
 import ButtonBack from '../../components/ButtonBack';
+import { useAuth } from '../../hooks/auth.hook';
+import { AuthContext } from '../../Context/AuthContext';
 
 export default function Product({ product }) {
   return (

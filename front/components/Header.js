@@ -15,7 +15,6 @@ import ModalProfile from './ModalProfile';
 
 export default function Header() {
   const [isOpen, setisOpen] = useState(false);
-
   return (
     <>
       <ModalContext.Provider value={{ isOpen, setisOpen }}>

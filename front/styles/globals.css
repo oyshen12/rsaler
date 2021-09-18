@@ -468,6 +468,33 @@ header {
   right: 0px;
   padding: 0 24px;
 }
+.block {
+  border: 1px solid green;
+  border-radius: 10px;
+  padding: 20px;
+  position: absolute;
+  background: green;
+  color: #fff;
+  box-shadow: 0 0 7px #000; /* Добавляем тень для блока */
+}
+.modalProfile::after,
+.modalProfile::before {
+  content: '';
+  position: absolute;
+  background: green;
+  left: 20px;
+  top: -11px;
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 0 7px #000; /* Добавляем тень для уголка */
+  z-index: -1; /* Прячем за основным блоком */
+  transform: rotate(45deg); /* Поворачиваем на 45º */
+  -webkit-transform: rotate(45deg);
+}
+.modalProfile::before {
+  z-index: 1; /* Накладываем поверх, чтобы скрыть следы тени */
+  box-shadow: none; /* Прячем тень */
+}
 /* MODAL PROFILE END------------------------------------------------------------------*/
 
 .show {
