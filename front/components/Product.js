@@ -1,11 +1,11 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Product({ product }) {
-  let time = Date.now() - Date.parse(product.createdAt);
-  let setTime;
+  let time = Date.now() - Date.parse(product.createdAt)
+  let setTime
   if (Math.floor(time / 86400000) > 1) {
-    setTime = Math.floor(time / 86400000) + ' дней';
+    setTime = Math.floor(time / 86400000) + ' дней'
   }
 
   return (
@@ -17,7 +17,7 @@ export default function Product({ product }) {
               <div
                 className="product_img_3"
                 style={{
-                  backgroundImage: `url('img/nike.png')`,
+                  backgroundImage: `url(${product.pictures[0]})`,
                 }}
               ></div>
             </div>
@@ -31,13 +31,7 @@ export default function Product({ product }) {
             </span>
             <span className="product__category">{product.title_full}</span>
           </div>
-          <img
-            src="img/heart.svg"
-            alt=""
-            width="23px"
-            height="23px"
-            className="product__heart"
-          />
+          <img src="img/heart.svg" alt="" width="23px" height="23px" className="product__heart" />
         </div>
         <div className="product__price">
           <span className="product__price__sp">{product.price}</span>
@@ -45,5 +39,5 @@ export default function Product({ product }) {
         </div>
       </div>
     </Link>
-  );
+  )
 }
