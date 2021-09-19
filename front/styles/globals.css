@@ -32,8 +32,8 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 88.88%;
-  max-width: 1440px;
+  width: 77.77%;
+  max-width: 1120px;
 }
 .header__categories {
   display: flex;
@@ -80,13 +80,15 @@ header {
 
 .header__login {
   position: relative;
-  margin-left: 20px;
+  margin-left: 14px;
 }
 .header__heart {
   margin-left: 14px;
+  height: 23px;
 }
 .header__mail {
   margin-left: 14px;
+  height: 23px;
 }
 
 .icon {
@@ -97,7 +99,7 @@ header {
 /* PRODUCT------------------------------------------------------------------*/
 .main__product {
   cursor: pointer;
-  width: 260px;
+  width: 255px;
 }
 .main__product:hover {
   position: relative;
@@ -129,6 +131,11 @@ header {
   font-size: 14px;
   line-height: 21px;
 }
+.product_name_size {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
 .product__time {
   font-size: 14px;
   line-height: 21px;
@@ -151,9 +158,11 @@ header {
 }
 .product_grid {
   display: grid;
-  grid-template-columns: 220px 220px 220px 220px;
-  grid-column-gap: 70px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 33px;
   grid-row-gap: 50px;
+  width: 77.77%;
+  max-width: 1120px;
 }
 .product_img_1 {
   width: 100%;
@@ -189,6 +198,20 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.product__title_full {
+  font-size: 14px;
+  line-height: 21px;
+  color: #b6b6b6;
+}
+.product__size {
+  font-size: 14px;
+  line-height: 21px;
+}
+.product__heart {
+  height: 23px;
+  width: 23px;
+  z-index: 100;
+}
 
 /* PRODUCT END------------------------------------------------------------------*/
 
@@ -202,8 +225,8 @@ header {
   margin-top: 30px;
   display: flex;
   justify-content: space-between;
-  width: 88.88%;
-  max-width: 1440px;
+  width: 77.77%;
+  max-width: 1120px;
 }
 .productPage_img {
   width: 600px;
@@ -454,7 +477,30 @@ header {
   font-size: 14px;
   line-height: 21px;
 }
-
+.modalAuth__vk {
+  width: 230px;
+  height: 40px;
+  border: none;
+  background: #247bff;
+  border-radius: 2px;
+  margin-top: 15px;
+  color: #fff;
+  font-size: 18px;
+  line-height: 27px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modalAuth__vk span {
+  cursor: pointer;
+  margin-left: 10px;
+  font: 400 18px Arial;
+}
+.modalAuth_img_profile {
+  height: 23px;
+  width: 23px;
+}
 /* MODAL AUTH END------------------------------------------------------------------*/
 
 /* MODAL PROFILE ------------------------------------------------------------------*/
@@ -466,26 +512,26 @@ header {
   background: #ffffff;
   box-shadow: 0px 0px 9px 8px rgba(0, 0, 0, 0.04);
   right: 0px;
+  top: 30px;
   padding: 0 24px;
 }
-.block {
-  border: 1px solid green;
-  border-radius: 10px;
-  padding: 20px;
+.modalProfile_opacity {
   position: absolute;
-  background: green;
-  color: #fff;
-  box-shadow: 0 0 7px #000; /* Добавляем тень для блока */
+  opacity: 0;
+  height: 10px;
+  left: 0;
+  top: -10px;
+  width: 100%;
 }
 .modalProfile::after,
 .modalProfile::before {
   content: '';
   position: absolute;
-  background: green;
-  left: 20px;
-  top: -11px;
-  width: 20px;
-  height: 20px;
+  background: white;
+  right: 6px;
+  top: -5px;
+  width: 10px;
+  height: 10px;
   box-shadow: 0 0 7px #000; /* Добавляем тень для уголка */
   z-index: -1; /* Прячем за основным блоком */
   transform: rotate(45deg); /* Поворачиваем на 45º */
@@ -505,43 +551,7 @@ header {
 }
 
 /* MEDIA START------------------------------------------------------------------*/
-@media (max-width: 1600px) {
-  .product_grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 100px;
-    grid-row-gap: 50px;
-  }
-}
-@media (max-width: 1040px) {
-  .product_grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 100px;
-    grid-row-gap: 50px;
-  }
-  .header__logo {
-    display: none;
-  }
-}
-@media (max-width: 375px) {
-  .product_grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-column-gap: 100px;
-    grid-row-gap: 50px;
-  }
-  .header__goods {
-    display: none;
-  }
-  .header__news {
-    display: none;
-  }
 
-  .icon {
-    display: block;
-  }
-}
 /* MEDIA END------------------------------------------------------------------*/
 @font-face {
   font-family: 'Oswald-Regular';

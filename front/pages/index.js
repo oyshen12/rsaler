@@ -46,25 +46,19 @@ export default function Home({ products }) {
     }
   };
 
-  const { token, login, logout, userId } = useAuth();
-  const isAuthenticated = !!token;
   return (
     <>
-      <AuthContext.Provider
-        value={{ token, login, logout, userId, isAuthenticated }}
-      >
-        <Header></Header>
-        <div className="main__new">
-          <span>Недавно добавленные</span>
+      <Header></Header>
+      <div className="main__new">
+        <span>Недавно добавленные</span>
+      </div>
+      <div className="product_flex">
+        <div className="product_grid">
+          {product.map((prod) => (
+            <Product product={prod} key={prod.id} />
+          ))}
         </div>
-        <div className="product_flex">
-          <div className="product_grid">
-            {product.map((prod) => (
-              <Product product={prod} />
-            ))}
-          </div>
-        </div>
-      </AuthContext.Provider>
+      </div>
     </>
   );
 }

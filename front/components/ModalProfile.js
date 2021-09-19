@@ -16,10 +16,11 @@ export default function ModalProfile() {
           modalProfile.current.style.display = 'none';
         }}
       >
-        <div>
+        <div className="modalAuth_img_profile">
           <Image src="/img/profile.svg" width="23px" height="23px" />
         </div>
         <div ref={modalProfile} className="modalProfile">
+          <div className="modalProfile_opacity"></div>
           <button
             className="modalAuth__button"
             onClick={(e) => {
@@ -28,7 +29,6 @@ export default function ModalProfile() {
           >
             Выйти
           </button>
-          <div className="block">Глокая куздра штеко</div>
         </div>
       </div>
     );

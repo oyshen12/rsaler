@@ -13,12 +13,7 @@ export default function ModalAuth() {
   const Auth = useContext(AuthContext);
 
   function clickDocumentHandler(e) {
-    if (
-      e.target.className != 'modalAuth__button_in' &&
-      e.target.closest('div').className != 'modalAuth_login' &&
-      e.target.className != 'modalAuth_login' &&
-      modalAuth.current
-    ) {
+    if (e.currentTarget != '#document' && modalAuth.current) {
       modalAuth.current.style.display = 'none';
     }
   }
@@ -39,7 +34,7 @@ export default function ModalAuth() {
           return response.data;
         });
       Auth.login(token, '1');
-      modalAuth.current.style.display = 'none';
+      if (modalAuth.current) modalAuth.current.style.display = 'none';
     } catch (e) {
       console.log('Ошибка входа в аккаунт ' + e);
     }
@@ -47,7 +42,12 @@ export default function ModalAuth() {
 
   if (!Auth.isAuthenticated)
     return (
-      <div className="modalAuth_profile">
+      <div
+        className="modalAuth_profile"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
         <button
           className="modalAuth__button_in"
           onClick={() => {
@@ -65,7 +65,7 @@ export default function ModalAuth() {
             name="name"
             type="text"
             className="modalAuth__input"
-            autocomplete="off"
+            autoComplete="off"
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
@@ -74,7 +74,6 @@ export default function ModalAuth() {
             name="name"
             type="password"
             className="modalAuth__input"
-            autocomplete="off"
             onChange={(e) => setPassword(e.target.value)}
           />
           <button
@@ -88,6 +87,15 @@ export default function ModalAuth() {
           <div className="modalAuth_register">
             <span>Забыли пароль?</span>
             <span>Регистрация</span>
+          </div>
+          <div className="modalAuth__vk">
+            <Image
+              src="/img/vk.svg"
+              width="23px"
+              height="23px"
+              className="product__vk_img"
+            />
+            <span>Вконтакте</span>
           </div>
         </div>
       </div>

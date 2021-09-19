@@ -48,8 +48,6 @@ export default function Header() {
               <Image src="/img/heart.svg" width="23px" height="23px" />
             </div>
 
-            <span>0</span>
-
             <div className="header__login">
               <ModalAuth></ModalAuth>
               <ModalProfile></ModalProfile>

@@ -77,7 +77,7 @@ export default function Product({ product }) {
                       lineHeight: '36px',
                     }}
                   >
-                    Продавец Николай
+                    Николай
                   </span>
                   <span>Рейтинг: 4.5</span>
                   <span>Сделки: 5</span>
