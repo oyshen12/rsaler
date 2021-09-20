@@ -1,4 +1,4 @@
-import { useEffect, useState, useRouter } from 'react';
+import { useEffect, useState, useRouter, useContext } from 'react';
 import Header from '../../components/Header';
 const axios = require('axios').default;
 import Image from 'next/image';
@@ -7,6 +7,19 @@ import { useAuth } from '../../hooks/auth.hook';
 import { AuthContext } from '../../Context/AuthContext';
 
 export default function Product({ product }) {
+  const Auth = useContext(AuthContext);
+
+  useEffect(async () => {
+    if (Auth.token) {
+      const { data } = await axios.get('http://localhost:3000/user/profile', {
+        headers: {
+          Authorization: `Bearer ${Auth.token.access_token}`,
+        },
+      });
+      console.log(data);
+    }
+  });
+
   return (
     <div>
       <Header></Header>

@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import Product from '../components/Product';
 const axios = require('axios').default;
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useCallback, useState, useEffect, useContext } from 'react';
 import { useAuth } from '../hooks/auth.hook';
 import { AuthContext } from '../Context/AuthContext';
 
@@ -19,7 +19,6 @@ export default function Home({ products }) {
         .then((resp) => {
           setProducts([...product, ...resp.data]);
           setCurrentPage(() => currentPage++);
-          console.log(currentPage);
           if (resp.data.length <= 0) {
             setisEmpty(true);
           }
@@ -27,6 +26,7 @@ export default function Home({ products }) {
     }
   }, [fetching]);
 
+  const Auth = useContext(AuthContext);
   useEffect(() => {
     document.addEventListener('scroll', scrollHandler);
 
